@@ -1,7 +1,27 @@
 import React, { Component } from 'react'
+
 import './App.css'
+import City from './components/City/City.jsx'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      city1: {
+        name: 'Santa Cruz de Tenerife, ES',
+        status: 'Sunny',
+        iconCode: '800',
+        temp: 23
+      },
+      city2: {
+        name: 'London, GB',
+        status: 'Cloudy',
+        iconCode: '803',
+        temp: 25
+      }
+    }
+  }
+
   render() {
     return (
       <section class='section'>
@@ -42,75 +62,12 @@ class App extends Component {
           </div>
 
           <div class='information is-size-5'>
-            {/* City Component */}
-            <div class='information-card'>
-              <div class='information-card__loader' id='loader-1'>
-                <h2 class='information-card__heading is-size-4' id='loader-city-1'>
-                </h2>
-
-                <p class='information-card__status' id='loader-status-1'>
-                  Fetching data...
-                </p>
-
-                <img src='dist/svg/wi-thermometer.svg'
-                  class='information-card__icon' />
-
-                <p class='information-card__temperature' id='loader-temp-1'>
-                </p>
-              </div>
-
-              <div class='information-card__data opacity-1' id='data-1'>
-                <h2 class='information-card__heading is-size-4' id='data-city-1'>
-                </h2>
-
-                <p class='information-card__status' id='data-status-1'>
-                  Fetching data...
-                </p>
-
-                <img src='dist/svg/wi-thermometer.svg'
-                  class='information-card__icon' id='data-icon-1' />
-
-                <p class='information-card__temperature' id='data-temp-1'>
-                </p>
-              </div>
-            </div>
-
-            {/* City Component */}
-            <div class='information-card'>
-              <div class='information-card__loader' id='loader-2'>
-                <h2 class='information-card__heading is-size-4' id='loader-city-2'>
-                </h2>
-
-                <p class='information-card__status' id='loader-status-2'>
-                  Fetching data...
-                </p>
-
-                <img src='dist/svg/wi-thermometer.svg'
-                  class='information-card__icon' />
-
-                <p class='information-card__temperature' id='loader-temp-2'>
-                </p>
-              </div>
-
-              <div class='information-card__data opacity-1' id='data-2'>
-                <h2 class='information-card__heading is-size-4' id='data-city-2'>
-                </h2>
-
-                <p class='information-card__status' id='data-status-2'>
-                  Fetching data...
-                </p>
-
-                <img src='dist/svg/wi-thermometer.svg'
-                  class='information-card__icon' id='data-icon-2' />
-
-                <p class='information-card__temperature' id='data-temp-2'>
-                </p>
-              </div>
-            </div>
+            <City city={this.state.city1} />
+            <City city={this.state.city2} />
           </div>
         </main>
       </section>
-    );
+    )
   }
 }
 
