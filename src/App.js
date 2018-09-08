@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
+import Search from './components/Search'
 import City from './components/City/City.jsx'
 
 class App extends Component {
@@ -20,6 +21,8 @@ class App extends Component {
         temp: 25
       }
     }
+
+    this.handleUpdate = this._handleUpdate.bind(this)
   }
 
   render() {
@@ -30,36 +33,7 @@ class App extends Component {
         </header>
 
         <main class='main'>
-          {/* Search Component */}
-          <div class='search'>
-            <form action=''>
-              <div class='field is-horizontal'>
-                <div class='field-body'>
-                  <div class='field'>
-                    <div class='control'>
-                      <input type='text' class='input' id='input-city-1'
-                        placeholder='City 1' autofocus required minlength='1' />
-                    </div>
-                  </div>
-
-                  <div class='field'>
-                    <div class='control'>
-                      <input type='text' class='input' id='input-city-2'
-                        placeholder='City 2' required minlength='1' />
-                    </div>
-                  </div>
-
-                  <div class='field'>
-                    <div class='control'>
-                      <button class='button is-primary is-fullwidth' id='submit'>
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+          <Search onSubmit={this.handleUpdate} />
 
           <div class='information is-size-5'>
             <City city={this.state.city1} />
@@ -68,6 +42,12 @@ class App extends Component {
         </main>
       </section>
     )
+  }
+
+  // private
+
+  _handleUpdate(city1, city2) {
+    console.log('handleUpdate', city1, city2)
   }
 }
 
