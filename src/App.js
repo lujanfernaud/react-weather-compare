@@ -27,15 +27,15 @@ class App extends Component {
 
   render() {
     return (
-      <section class='section'>
+      <section className='section'>
         <header>
-          <h1 class='main-heading'>Weather Compare</h1>
+          <h1 className='main-heading'>Weather Compare</h1>
         </header>
 
-        <main class='main'>
+        <main className='main'>
           <Search onSubmit={this.handleUpdate} />
 
-          <div class='information is-size-5'>
+          <div className='information is-size-5'>
             <City city={this.state.city1} />
             <City city={this.state.city2} />
           </div>
