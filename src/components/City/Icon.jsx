@@ -10,9 +10,15 @@ class Icon extends Component {
         enableBackground='new 0 0 30 30'
         viewBox='0 0 30 30'
         className='information-card__icon'>
-        <path d={weatherIcons[this.props.iconCode].path} />
+        <path d={weatherIcons[this._iconCode()].path} />
       </svg>
     )
+  }
+
+  // private
+
+  _iconCode() {
+    return this.props.iconCode || 800
   }
 }
 
