@@ -96,14 +96,7 @@ class Search extends Component {
     const city1 = this.inputCity1.current.value
     const city2 = this.inputCity2.current.value
 
-    const city1Data = await this._getData(city1)
-    const city2Data = await this._getData(city2)
-
-    this.props.onSubmit(city1Data, city2Data)
-  }
-
-  _getData(city) {
-    return this.props.weatherAPI.fetchData(city)
+    this.props.onSubmit(city1, city2)
   }
 }
 

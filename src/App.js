@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-import WeatherAPI from './lib/weatherAPI'
+
+import CityModel from './lib/cityModel'
 
 import './App.css'
 import Search from './components/Search'
-import City from './components/City/City.jsx'
+import City from './components/City/City'
 
 class App extends Component {
   constructor() {
     super()
-    this.weatherAPI = new WeatherAPI()
+
+    this.cityModel = new CityModel()
+
     this.state = {
       city1: {
         name: 'Santa Cruz de Tenerife, ES',
@@ -35,10 +38,7 @@ class App extends Component {
         </header>
 
         <main className='main'>
-          <Search
-            onSubmit={this.handleUpdate}
-            weatherAPI={this.weatherAPI}
-          />
+          <Search onSubmit={this.handleUpdate} />
 
           <div className='information is-size-5'>
             <City city={this.state.city1} />
@@ -51,8 +51,11 @@ class App extends Component {
 
   // private
 
-  _handleUpdate(city1Data, city2Data) {
-    console.log('handleUpdate', city1Data, city2Data)
+  async _handleUpdate(city1, city2) {
+    console.log('handleUpdate', city1, city2)
+
+    const city1Data = await this.cityModel.findOrCreate(city1)
+    const city2Data = await this.cityModel.findOrCreate(city2)
 
     this.setState({
       city1: city1Data,
