@@ -30,6 +30,13 @@ class App extends Component {
     this.handleUpdate = this._handleUpdate.bind(this)
   }
 
+  componentWillMount() {
+    const city1 = 'Santa Cruz de Tenerife, ES'
+    const city2 = 'London, GB'
+
+    this._updateState(city1, city2)
+  }
+
   render() {
     return (
       <section className='section'>
@@ -51,8 +58,12 @@ class App extends Component {
 
   // private
 
-  async _handleUpdate(city1, city2) {
-    console.log('handleUpdate', city1, city2)
+  _handleUpdate(city1, city2) {
+    this._updateState(city1, city2)
+  }
+
+  async _updateState(city1, city2) {
+    console.log('_updateState', city1, city2)
 
     const city1Data = await this.cityModel.findOrCreate(city1)
     const city2Data = await this.cityModel.findOrCreate(city2)
