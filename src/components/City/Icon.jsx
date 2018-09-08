@@ -3,11 +3,6 @@ import React, { Component } from 'react'
 import weatherIcons from './weatherIcons'
 
 class Icon extends Component {
-  constructor(props) {
-    super(props)
-    this.iconPath = weatherIcons[this.props.iconCode].path
-  }
-
   render() {
     return (
       <svg
@@ -15,7 +10,7 @@ class Icon extends Component {
         enableBackground='new 0 0 30 30'
         viewBox='0 0 30 30'
         className='information-card__icon'>
-        <path d={this.iconPath} />
+        <path d={weatherIcons[this.props.iconCode].path} />
       </svg>
     )
   }
