@@ -21,19 +21,28 @@ class Search extends Component {
             <div className='field-body'>
               <div className='field'>
                 <div className='control'>
-                  <input ref={this.inputCity1}
+                  <input
+                    ref={this.inputCity1}
                     onInput={this.handleInput}
-                    type='text' className='input'
-                    placeholder='City 1' autoFocus required minLength='1' />
+                    type='text'
+                    className='input'
+                    placeholder={this.props.city1.name}
+                    autoFocus
+                    required minLength='1'
+                  />
                 </div>
               </div>
 
               <div className='field'>
                 <div className='control'>
-                  <input ref={this.inputCity2}
+                  <input
+                    ref={this.inputCity2}
                     onInput={this.handleInput}
-                    type='text' className='input'
-                    placeholder='City 2' required minLength='1' />
+                    type='text'
+                    className='input'
+                    placeholder={this.props.city2.name}
+                    required minLength='1'
+                  />
                 </div>
               </div>
 

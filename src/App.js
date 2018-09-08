@@ -45,7 +45,11 @@ class App extends Component {
         </header>
 
         <main className='main'>
-          <Search onSubmit={this.handleUpdate} />
+          <Search
+            city1={this.state.city1}
+            city2={this.state.city2}
+            onSubmit={this.handleUpdate}
+          />
 
           <div className='information is-size-5'>
             <City city={this.state.city1} />
