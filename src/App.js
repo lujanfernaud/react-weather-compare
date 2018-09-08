@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import WeatherAPI from './lib/weatherAPI'
 
 import './App.css'
 import Search from './components/Search'
@@ -7,6 +8,7 @@ import City from './components/City/City.jsx'
 class App extends Component {
   constructor() {
     super()
+    this.weatherAPI = new WeatherAPI()
     this.state = {
       city1: {
         name: 'Santa Cruz de Tenerife, ES',
@@ -33,7 +35,10 @@ class App extends Component {
         </header>
 
         <main className='main'>
-          <Search onSubmit={this.handleUpdate} />
+          <Search
+            onSubmit={this.handleUpdate}
+            weatherAPI={this.weatherAPI}
+          />
 
           <div className='information is-size-5'>
             <City city={this.state.city1} />
@@ -46,8 +51,13 @@ class App extends Component {
 
   // private
 
-  _handleUpdate(city1, city2) {
-    console.log('handleUpdate', city1, city2)
+  _handleUpdate(city1Data, city2Data) {
+    console.log('handleUpdate', city1Data, city2Data)
+
+    this.setState({
+      city1: city1Data,
+      city2: city2Data
+    })
   }
 }
 
