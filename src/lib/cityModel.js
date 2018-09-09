@@ -17,6 +17,8 @@ class CityModel {
     } else {
       cityData = await this._fetchDataFor(city).catch(() => cityNotFound)
 
+      if (cityData.status === cityNotFound.status) { return false }
+
       localStorage.create(cityData)
     }
 
