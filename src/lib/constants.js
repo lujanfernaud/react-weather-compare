@@ -1,3 +1,5 @@
+'use strict'
+
 const oneHour = 60 * 60 * 1000
 
 const cityNotFound = {
@@ -7,4 +9,6 @@ const cityNotFound = {
   temp: ''
 }
 
-export { oneHour, cityNotFound }
+const countryCodeRegExp = /,\s?\w+/
+
+export { oneHour, cityNotFound, countryCodeRegExp }

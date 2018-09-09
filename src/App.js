@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
 import SearchResults from './lib/searchResults'
+import cityNameFormatter from './lib/cityNameFormatter'
 
 import './App.css'
 import Search from './components/Search'
@@ -54,14 +55,14 @@ class App extends Component {
 
         <main className='main'>
           <Search
-            city1={this.state.city1}
-            city2={this.state.city2}
+            city1={this._formattedCity1()}
+            city2={this._formattedCity2()}
             onSubmit={this.handleUpdate}
           />
 
           <div className='information is-size-5'>
-            <City city={this.state.city1} />
-            <City city={this.state.city2} />
+            <City city={this._formattedCity1()} />
+            <City city={this._formattedCity2()} />
           </div>
         </main>
       </section>
@@ -69,6 +70,22 @@ class App extends Component {
   }
 
   // private
+
+  _formattedCity1() {
+    const city1 = {...this.state.city1}
+
+    city1.name = cityNameFormatter.run(city1.name)
+
+    return city1
+  }
+
+  _formattedCity2() {
+    const city2 = {...this.state.city2}
+
+    city2.name = cityNameFormatter.run(city2.name)
+
+    return city2
+  }
 
   _handleUpdate(city1, city2) {
     this._updateState(city1, city2)
