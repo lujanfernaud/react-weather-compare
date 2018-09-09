@@ -10,6 +10,8 @@ class CityModel {
   async findOrCreate(city) {
     const localStorage = new LocalStorage()
 
+    city = city.toLowerCase()
+
     let cityData
 
     if (localStorage.hasUpdatedCity(city)) {
@@ -18,6 +20,7 @@ class CityModel {
       cityData = await this._fetchDataFor(city).catch(() => cityNotFound)
 
       if (this._cityWasFound(cityData)) {
+        cityData.name = cityData.name.toLowerCase()
         localStorage.create(cityData)
       }
     }
