@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import CityModel from './lib/cityModel'
+import SearchModel from './lib/searchModel'
 
 import './App.css'
 import Search from './components/Search'
@@ -31,10 +32,16 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const city1 = 'Santa Cruz de Tenerife, ES'
-    const city2 = 'London, GB'
+    if (SearchModel.lastSearch()) {
+      const { city1, city2 } = SearchModel.lastSearch()
 
-    this._updateState(city1, city2)
+      this._updateState(city1, city2)
+    } else {
+      const city1 = 'Santa Cruz de Tenerife, ES'
+      const city2 = 'London, GB'
+
+      this._updateState(city1, city2)
+    }
   }
 
   render() {
@@ -67,10 +74,10 @@ class App extends Component {
   }
 
   async _updateState(city1, city2) {
-    console.log('_updateState', city1, city2)
-
     const city1Data = await this.cityModel.findOrCreate(city1)
     const city2Data = await this.cityModel.findOrCreate(city2)
+
+    SearchModel.storeSearch(city1, city2)
 
     this.setState({
       city1: city1Data,

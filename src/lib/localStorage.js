@@ -3,6 +3,7 @@ import { oneHour } from './constants'
 class LocalStorage {
   constructor() {
     this.cities = this._setCities()
+    this.lastSearch = this._setLastSearch()
   }
 
   hasUpdatedCity(cityName) {
@@ -31,11 +32,25 @@ class LocalStorage {
     this._updateCities(filteredCities)
   }
 
+  storeSearch(city1Name, city2Name) {
+    const search = { city1: city1Name, city2: city2Name }
+
+    this._updateLastSearch(search)
+  }
+
   // private
 
   _setCities() {
     if (this._available() && localStorage.getItem('cities')) {
       return JSON.parse(localStorage.getItem('cities'))
+    } else {
+      return []
+    }
+  }
+
+  _setLastSearch() {
+    if (this._available() && localStorage.getItem('lastSearch')) {
+      return JSON.parse(localStorage.getItem('lastSearch'))
     } else {
       return []
     }
@@ -66,6 +81,10 @@ class LocalStorage {
 
   _updateCities(cities) {
     localStorage.setItem('cities', JSON.stringify(cities))
+  }
+
+  _updateLastSearch(search) {
+    localStorage.setItem('lastSearch', JSON.stringify(search))
   }
 }
 
