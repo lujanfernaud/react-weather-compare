@@ -13,9 +13,6 @@ import City from './components/City/City'
 class App extends Component {
   constructor() {
     super()
-
-    this.cityModel = new CityModel()
-
     this.state = {
       city1: {
         name: 'Santa Cruz de Tenerife, ES',
@@ -27,10 +24,10 @@ class App extends Component {
         name: 'London, GB',
         status: 'Cloudy',
         iconCode: '803',
-        temp: 25
+        temp: 19
       }
     }
-
+    this.cityModel = new CityModel()
     this.updateState = this._updateState.bind(this)
   }
 
