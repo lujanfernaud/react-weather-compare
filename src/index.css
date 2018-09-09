@@ -3131,9 +3131,6 @@ template {
 [hidden] {
   display: none; }
 
-.opacity-1 {
-  opacity: 1 !important; }
-
 html {
   font-size: 125%;
   font-family: sans;
@@ -3189,24 +3186,11 @@ body {
     text-transform: capitalize;
     background-color: white;
     border-radius: 0.25rem; }
-    .information-card__loader {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      opacity: 0;
-      transition: all .25s ease-in-out; }
     .information-card__data {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      opacity: 0;
       transition: all .25s ease-out; }
     .information-card:not(:last-child) {
       margin-bottom: 1.75rem; }
