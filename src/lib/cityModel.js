@@ -16,9 +16,7 @@ class CityModel {
   find(city) {
     const localStorage = new LocalStorage()
 
-    city = city.toLowerCase()
-
-    return localStorage.find(city)
+    return localStorage.find(city.toLowerCase())
   }
 
   async create(city) {
