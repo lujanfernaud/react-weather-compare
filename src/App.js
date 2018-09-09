@@ -31,7 +31,7 @@ class App extends Component {
       }
     }
 
-    this.handleUpdate = this._handleUpdate.bind(this)
+    this.updateState = this._updateState.bind(this)
   }
 
   componentWillMount() {
@@ -58,7 +58,7 @@ class App extends Component {
           <Search
             city1={this._formattedCity1()}
             city2={this._formattedCity2()}
-            onSubmit={this.handleUpdate}
+            onSubmit={this.updateState}
           />
 
           <div className='information is-size-5'>
@@ -86,10 +86,6 @@ class App extends Component {
     city2.name = cityNameFormatter.run(city2.name)
 
     return city2
-  }
-
-  _handleUpdate(city1, city2) {
-    this._updateState(city1, city2)
   }
 
   async _updateState(city1, city2) {
