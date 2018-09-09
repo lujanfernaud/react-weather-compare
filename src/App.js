@@ -4,7 +4,7 @@ import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
 import SearchResults from './lib/searchResults'
 import cityNameFormatter from './lib/cityNameFormatter'
-import { fetchingState } from './lib/constants'
+import { fetching } from './lib/constants'
 
 import './App.css'
 import Search from './components/Search'
@@ -98,14 +98,14 @@ class App extends Component {
     if (this.cityModel.isUpdated(city1)) {
       city1Data = this.cityModel.find(city1)
     } else {
-      this.setState({ city1: fetchingState })
+      this.setState({ city1: fetching })
       city1Data = await this.cityModel.create(city1)
     }
 
     if (this.cityModel.isUpdated(city2)) {
       city2Data = this.cityModel.find(city2)
     } else {
-      this.setState({ city2: fetchingState })
+      this.setState({ city2: fetching })
       city2Data = await this.cityModel.create(city2)
     }
 

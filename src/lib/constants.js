@@ -9,7 +9,7 @@ const cityNotFound = {
   temp: ''
 }
 
-const fetchingState = {
+const fetching = {
   name: '',
   status: 'Fetching data...',
   iconCode: 'fetching',
@@ -21,6 +21,6 @@ const countryCodeRegExp = /,\s?\w+/
 export {
   oneHour,
   cityNotFound,
-  fetchingState,
+  fetching,
   countryCodeRegExp
 }
