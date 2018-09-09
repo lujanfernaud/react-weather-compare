@@ -17,15 +17,19 @@ class CityModel {
     } else {
       cityData = await this._fetchDataFor(city).catch(() => cityNotFound)
 
-      if (cityData.status === cityNotFound.status) { return false }
-
-      localStorage.create(cityData)
+      if (this._cityWasFound(cityData)) {
+        localStorage.create(cityData)
+      }
     }
 
     return cityData
   }
 
   // private
+
+  _cityWasFound(city) {
+    return city.status !== cityNotFound.status
+  }
 
   _fetchDataFor(city) {
     return this.weatherAPI.fetchData(city)

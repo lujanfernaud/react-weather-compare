@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
+import SearchResults from './lib/searchResults'
 
 import './App.css'
 import Search from './components/Search'
@@ -77,7 +78,9 @@ class App extends Component {
     const city1Data = await this.cityModel.findOrCreate(city1)
     const city2Data = await this.cityModel.findOrCreate(city2)
 
-    SearchModel.storeSearch(city1, city2)
+    if (SearchResults.wereValid(city1Data, city2Data)) {
+      SearchModel.storeSearch(city1, city2)
+    }
 
     this.setState({
       city1: city1Data,
