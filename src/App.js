@@ -4,6 +4,7 @@ import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
 import SearchResults from './lib/searchResults'
 import cityNameFormatter from './lib/cityNameFormatter'
+import { fetchingState } from './lib/constants'
 
 import './App.css'
 import Search from './components/Search'
@@ -92,8 +93,21 @@ class App extends Component {
   }
 
   async _updateState(city1, city2) {
-    const city1Data = await this.cityModel.findOrCreate(city1)
-    const city2Data = await this.cityModel.findOrCreate(city2)
+    let city1Data, city2Data
+
+    if (this.cityModel.isUpdated(city1)) {
+      city1Data = this.cityModel.find(city1)
+    } else {
+      this.setState({ city1: fetchingState })
+      city1Data = await this.cityModel.create(city1)
+    }
+
+    if (this.cityModel.isUpdated(city2)) {
+      city2Data = this.cityModel.find(city2)
+    } else {
+      this.setState({ city2: fetchingState })
+      city2Data = await this.cityModel.create(city2)
+    }
 
     if (SearchResults.wereValid(city1Data, city2Data)) {
       SearchModel.storeSearch(city1, city2)

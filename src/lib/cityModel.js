@@ -7,22 +7,30 @@ class CityModel {
     this.weatherAPI = new WeatherAPI()
   }
 
-  async findOrCreate(city) {
+  isUpdated(city) {
+    const localStorage = new LocalStorage()
+
+    return localStorage.hasUpdatedCity(city.toLowerCase())
+  }
+
+  find(city) {
     const localStorage = new LocalStorage()
 
     city = city.toLowerCase()
 
-    let cityData
+    return localStorage.find(city)
+  }
 
-    if (localStorage.hasUpdatedCity(city)) {
-      cityData = localStorage.find(city)
-    } else {
-      cityData = await this._fetchDataFor(city).catch(() => cityNotFound)
+  async create(city) {
+    const localStorage = new LocalStorage()
 
-      if (this._cityWasFound(cityData)) {
-        cityData.name = cityData.name.toLowerCase()
-        localStorage.create(cityData)
-      }
+    city = city.toLowerCase()
+
+    const cityData = await this._fetchDataFor(city).catch(() => cityNotFound)
+
+    if (this._cityWasFound(cityData)) {
+      cityData.name = cityData.name.toLowerCase()
+      localStorage.create(cityData)
     }
 
     return cityData

@@ -9,6 +9,18 @@ const cityNotFound = {
   temp: ''
 }
 
+const fetchingState = {
+  name: '',
+  status: 'Fetching data...',
+  iconCode: 'fetching',
+  temp: ''
+}
+
 const countryCodeRegExp = /,\s?\w+/
 
-export { oneHour, cityNotFound, countryCodeRegExp }
+export {
+  oneHour,
+  cityNotFound,
+  fetchingState,
+  countryCodeRegExp
+}

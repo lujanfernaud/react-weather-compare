@@ -33,11 +33,21 @@ class City extends Component {
           <Icon iconCode={this.props.city.iconCode} />
 
           <p className='information-card__temperature'>
-            {this.props.city.temp} ℃
+            {this._setTemp()}
           </p>
         </div>
       </div>
     )
+  }
+
+  // private
+
+  _setTemp() {
+    if (this.props.city.temp.length !== 0) {
+      return this.props.city.temp + ' ℃'
+    } else {
+      return ''
+    }
   }
 }
 
