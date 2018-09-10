@@ -1,4 +1,12 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
+
+const SearchBar = styled.div`
+  margin-bottom: 1.75rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: .25rem;
+`
 
 class Search extends Component {
   constructor(props) {
@@ -13,7 +21,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className='search'>
+      <SearchBar>
         <form action='' onSubmit={this.handleSubmit}>
 
           <div className='field is-horizontal'>
@@ -60,7 +68,7 @@ class Search extends Component {
           </div>
 
         </form>
-      </div>
+      </SearchBar>
     )
   }
 

@@ -3144,9 +3144,3 @@ body {
   flex-direction: column;
   min-height: 100%;
   padding: 1.25rem 0; }
-
-.search {
-  margin-bottom: 1.75rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 0.25rem; }
