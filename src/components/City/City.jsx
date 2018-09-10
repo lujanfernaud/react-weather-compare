@@ -4,6 +4,10 @@ import { flexCenter } from '../../theme/styleUtils'
 
 import Icon from './Icon'
 
+// ------
+// Styles
+// ------
+
 const Card = styled.div`
   position: relative;
   ${flexCenter}
@@ -46,6 +50,10 @@ const Status = styled.p`
 const Temperature = styled.p`
   height: 1.85rem;
 `
+
+// ----------
+// Definition
+// ----------
 
 class City extends Component {
   render() {

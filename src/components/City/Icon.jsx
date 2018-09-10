@@ -3,12 +3,20 @@ import styled from 'styled-components'
 
 import weatherIcons from './weatherIcons'
 
+// ------
+// Styles
+// ------
+
 const SVGIcon = styled.svg`
   width: 5rem;
   height: 5rem;
   margin-top: .85rem;
   margin-bottom: .55rem;
 `
+
+// ----------
+// Definition
+// ----------
 
 class Icon extends Component {
   render() {

@@ -12,6 +12,10 @@ import { fetching } from './lib/constants'
 import Search from './components/Search'
 import City from './components/City/City'
 
+// ------
+// Styles
+// ------
+
 const Section = styled.section`
   position: relative;
   top: -3.4%;
@@ -44,6 +48,10 @@ const Cards = styled.div`
   }
 `
 
+// -----
+// Setup
+// -----
+
 const initialState = {
   city1: {
     name: 'Santa Cruz de Tenerife, ES',
@@ -65,6 +73,10 @@ const defaultSearch = {
   city1: 'Santa Cruz de Tenerife, ES',
   city2: 'London, GB'
 }
+
+// ----------
+// Definition
+// ----------
 
 class App extends Component {
   constructor() {

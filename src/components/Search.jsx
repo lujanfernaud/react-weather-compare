@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+// ------
+// Styles
+// ------
+
 const SearchBar = styled.div`
   margin-bottom: ${props => props.theme.gutter};
   padding: ${props => props.theme.boxPadding};
   background-color: ${props => props.theme.white};
   border-radius: ${props => props.theme.borderRadius};
 `
+
+// ----------
+// Definition
+// ----------
 
 class Search extends Component {
   constructor(props) {
