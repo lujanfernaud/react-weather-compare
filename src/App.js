@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
@@ -10,6 +11,38 @@ import { fetching } from './lib/constants'
 import './App.css'
 import Search from './components/Search'
 import City from './components/City/City'
+
+const Section = styled.section`
+  position: relative;
+  top: -3.4%;
+  padding: 0 1.75rem 1.75rem 1.75rem;
+
+  @media screen and (min-width: 1300px) {
+    width: 60rem; // 1200 px
+  }
+`
+
+const Main = styled.main`
+  max-width: 100%;
+`
+
+const Heading = styled.h1`
+  margin-top: 0;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+`
+
+const Cards = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`
 
 class App extends Component {
   constructor() {
@@ -47,24 +80,26 @@ class App extends Component {
 
   render() {
     return (
-      <section className='section'>
+      <Section>
         <header>
-          <h1 className='main-heading'>Weather Compare</h1>
+          <Heading>
+            Weather Compare
+          </Heading>
         </header>
 
-        <main className='main'>
+        <Main>
           <Search
             city1={formatCity(this.state.city1)}
             city2={formatCity(this.state.city2)}
             onSubmit={this.updateState}
           />
 
-          <div className='information is-size-5'>
+          <Cards className='is-size-5'>
             <City city={formatCity(this.state.city1)} />
             <City city={formatCity(this.state.city2)} />
-          </div>
-        </main>
-      </section>
+          </Cards>
+        </Main>
+      </Section>
     )
   }
 
