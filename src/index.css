@@ -3130,17 +3130,3 @@ template {
  */
 [hidden] {
   display: none; }
-
-html {
-  font-size: 125%;
-  font-family: sans;
-  background-color: whitesmoke;
-  height: 100%; }
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100%;
-  padding: 1.25rem 0; }

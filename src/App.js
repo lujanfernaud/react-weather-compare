@@ -8,7 +8,6 @@ import SearchResults from './lib/searchResults'
 import formatCity from './lib/cityNameFormatter'
 import { fetching } from './lib/constants'
 
-import './App.css'
 import Search from './components/Search'
 import City from './components/City/City'
 
