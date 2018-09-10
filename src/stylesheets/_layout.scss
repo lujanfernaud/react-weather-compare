@@ -55,13 +55,4 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
-
-  &-card {
-    &__icon {
-      width: 5rem;
-      height: 5rem;
-      margin-top: .85rem;
-      margin-bottom: .55rem;
-    }
-  }
 }
