@@ -1,5 +1,3 @@
-'use strict'
-
 import { countryCodeRegExp } from './constants'
 import { capitalize, capitalizeCountryCode } from './utils'
 
@@ -19,4 +17,12 @@ const cityNameFormatter = {
   }
 }
 
-export default cityNameFormatter
+function formatCity(city) {
+  city = {...city}
+
+  city.name = cityNameFormatter.run(city.name)
+
+  return city
+}
+
+export default formatCity
