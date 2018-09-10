@@ -3175,39 +3175,20 @@ body {
   @media screen and (min-width: 768px) {
     .information {
       flex-direction: row; } }
-  .information-card {
-    position: relative;
+  .information-card__data {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 1.5rem;
-    flex-basis: 100%;
-    text-transform: capitalize;
-    background-color: white;
-    border-radius: 0.25rem; }
-    .information-card__data {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      transition: all .25s ease-out; }
-    .information-card:not(:last-child) {
-      margin-bottom: 1.75rem; }
-    .information-card__heading {
-      margin-bottom: 1rem;
-      min-height: 2.25rem;
-      text-align: center; }
-    .information-card__icon {
-      width: 5rem;
-      height: 5rem;
-      margin-top: .85rem;
-      margin-bottom: .55rem; }
-    .information-card__temperature {
-      height: 1.85rem; }
-    @media screen and (min-width: 768px) {
-      .information-card {
-        margin-bottom: 0 !important;
-        flex-basis: 48.5%; }
-        .information-card:not(:last-child) {
-          margin-right: 1.75rem; } }
+    transition: all .25s ease-out; }
+  .information-card__heading {
+    margin-bottom: 1rem;
+    min-height: 2.25rem;
+    text-align: center; }
+  .information-card__icon {
+    width: 5rem;
+    height: 5rem;
+    margin-top: .85rem;
+    margin-bottom: .55rem; }
+  .information-card__temperature {
+    height: 1.85rem; }

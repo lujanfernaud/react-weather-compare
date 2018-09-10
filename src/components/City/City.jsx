@@ -1,27 +1,77 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import Icon from './Icon'
+
+const Card = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 100%;
+  padding: 1.5rem;
+  text-transform: capitalize;
+  background-color: #fff;
+  border-radius: .25rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.75rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0 !important;
+    flex-basis: 48.5%;
+
+    &:not(:last-child) {
+      margin-right: 1.75rem;
+    }
+  }
+`
+
+const DataContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+const Heading = styled.h2`
+  margin-bottom: 1rem;
+  min-height: 2.25rem;
+  text-align: center;
+`
+
+const Status = styled.p`
+  text-align: center;
+`
+
+const Temperature = styled.p`
+  height: 1.85rem;
+`
 
 class City extends Component {
   render() {
     return (
-      <div className='information-card'>
-        <div className='information-card__data'>
-          <h2 className='information-card__heading is-size-4'>
+      <Card>
+        <DataContainer>
+          <Heading className='is-size-4'>
             {this.props.city.name}
-          </h2>
+          </Heading>
 
-          <p className='information-card__status'>
+          <Status>
             {this.props.city.status}
-          </p>
+          </Status>
 
-          <Icon iconCode={this.props.city.iconCode} />
+          <Icon
+            iconCode={this.props.city.iconCode}
+          />
 
-          <p className='information-card__temperature'>
+          <Temperature>
             {this._setTemp()}
-          </p>
-        </div>
-      </div>
+          </Temperature>
+        </DataContainer>
+      </Card>
     )
   }
 
