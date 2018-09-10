@@ -43,23 +43,25 @@ const Cards = styled.div`
   }
 `
 
+const initialState = {
+  city1: {
+    name: 'Santa Cruz de Tenerife, ES',
+    status: 'Sunny',
+    iconCode: '800',
+    temp: 23
+  },
+  city2: {
+    name: 'London, GB',
+    status: 'Cloudy',
+    iconCode: '803',
+    temp: 19
+  }
+}
+
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      city1: {
-        name: 'Santa Cruz de Tenerife, ES',
-        status: 'Sunny',
-        iconCode: '800',
-        temp: 23
-      },
-      city2: {
-        name: 'London, GB',
-        status: 'Cloudy',
-        iconCode: '803',
-        temp: 19
-      }
-    }
+    this.state = initialState
     this.cityModel = new CityModel()
     this.updateState = this._updateState.bind(this)
   }
