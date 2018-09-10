@@ -10,13 +10,13 @@ const Card = styled.div`
   align-items: center;
   flex-direction: column;
   flex-basis: 100%;
-  padding: 1.5rem;
+  padding: ${props => props.theme.boxPadding};
   text-transform: capitalize;
-  background-color: #fff;
-  border-radius: .25rem;
+  background-color: ${props => props.theme.white};
+  border-radius: ${props => props.theme.borderRadius};
 
   &:not(:last-child) {
-    margin-bottom: 1.75rem;
+    margin-bottom: ${props => props.theme.gutter};
   }
 
   @media screen and (min-width: 768px) {
@@ -24,7 +24,7 @@ const Card = styled.div`
     flex-basis: 48.5%;
 
     &:not(:last-child) {
-      margin-right: 1.75rem;
+      margin-right: ${props => props.theme.gutter};
     }
   }
 `

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const SearchBar = styled.div`
-  margin-bottom: 1.75rem;
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: .25rem;
+  margin-bottom: ${props => props.theme.gutter};
+  padding: ${props => props.theme.boxPadding};
+  background-color: ${props => props.theme.white};
+  border-radius: ${props => props.theme.borderRadius};
 `
 
 class Search extends Component {

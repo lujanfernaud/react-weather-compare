@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import theme from './theme/theme'
 
 import CityModel from './lib/cityModel'
 import SearchModel from './lib/searchModel'
@@ -81,26 +82,28 @@ class App extends Component {
 
   render() {
     return (
-      <Section>
-        <header>
-          <Heading>
-            Weather Compare
-          </Heading>
-        </header>
+      <ThemeProvider theme={theme}>
+        <Section>
+          <header>
+            <Heading>
+              Weather Compare
+            </Heading>
+          </header>
 
-        <Main>
-          <Search
-            city1={formatCity(this.state.city1)}
-            city2={formatCity(this.state.city2)}
-            onSubmit={this.updateState}
-          />
+          <Main>
+            <Search
+              city1={formatCity(this.state.city1)}
+              city2={formatCity(this.state.city2)}
+              onSubmit={this.updateState}
+            />
 
-          <Cards className='is-size-5'>
-            <City city={formatCity(this.state.city1)} />
-            <City city={formatCity(this.state.city2)} />
-          </Cards>
-        </Main>
-      </Section>
+            <Cards className='is-size-5'>
+              <City city={formatCity(this.state.city1)} />
+              <City city={formatCity(this.state.city2)} />
+            </Cards>
+          </Main>
+        </Section>
+      </ThemeProvider>
     )
   }
 
