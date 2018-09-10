@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { flexCenter } from '../../theme/styleUtils'
 
 import Icon from './Icon'
 
 const Card = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter}
   flex-direction: column;
   flex-basis: 100%;
   padding: ${props => props.theme.boxPadding};
@@ -30,9 +29,7 @@ const Card = styled.div`
 `
 
 const DataContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter}
   flex-direction: column;
 `
 
