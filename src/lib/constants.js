@@ -1,5 +1,3 @@
-'use strict'
-
 const oneHour = 60 * 60 * 1000
 
 const cityNotFound = {
