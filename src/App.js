@@ -59,6 +59,13 @@ const initialState = {
   }
 }
 
+const previousSearch = SearchModel.lastSearch()
+
+const defaultSearch = {
+  city1: 'Santa Cruz de Tenerife, ES',
+  city2: 'London, GB'
+}
+
 class App extends Component {
   constructor() {
     super()
@@ -68,15 +75,10 @@ class App extends Component {
   }
 
   componentWillMount() {
-    if (SearchModel.lastSearch()) {
-      const { city1, city2 } = SearchModel.lastSearch()
-
-      this._updateState(city1, city2)
+    if (previousSearch) {
+      this._useSearch(previousSearch)
     } else {
-      const city1 = 'Santa Cruz de Tenerife, ES'
-      const city2 = 'London, GB'
-
-      this._updateState(city1, city2)
+      this._useSearch(defaultSearch)
     }
   }
 
@@ -108,6 +110,11 @@ class App extends Component {
   }
 
   // private
+
+  _useSearch(search) {
+    const { city1, city2 } = search
+    this._updateState(city1, city2)
+  }
 
   async _updateState(city1, city2) {
     let city1Data, city2Data
